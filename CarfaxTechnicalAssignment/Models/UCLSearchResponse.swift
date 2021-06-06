@@ -68,18 +68,9 @@ class FirstPhotos: Decodable {
     
     var uiImage: UIImage? {
         get {
-            printIfMissingImage("getting URL")
             guard let url = URL(string: large) else { return nil }
-            printIfMissingImage("getting data")
             guard let data = try? Data(contentsOf: url) else { return nil }
-            printIfMissingImage("returining UIImage")
             return data.count > 0 ? UIImage(data: data) : nil
-        }
-    }
-    
-    fileprivate func printIfMissingImage(_ message: String) {
-        if large == "https://carfax-img.vast.com/carfax/-6729127322660579479/15/640x480" {
-            print(message)
         }
     }
 }

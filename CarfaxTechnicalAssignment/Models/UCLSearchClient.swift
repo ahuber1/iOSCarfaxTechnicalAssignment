@@ -27,13 +27,10 @@ class UCLSearchClient {
                 let data = data,
                 let status = (response as? HTTPURLResponse)?.statusCode
             else {
-                print("Expected an HTTPURLResponse but got a \(type(of: response))")
                 completion(.failure(Error.unknownAPIResponse))
                 return
             }
-            
-            print("Status Code: \(status)")
-            
+                        
             do {
                 let uclResponse = try JSONDecoder().decode(UCLSearchResponse.self, from: data)
                 completion(.success(uclResponse))

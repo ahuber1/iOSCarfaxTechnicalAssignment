@@ -55,9 +55,10 @@ class ListingCollectionViewController: UICollectionViewController {
                     case .success(let response):
                         self.listings = response.listings
                         self.collectionView.reloadData()
-                        
                     case .failure(let error):
-                        print(error) // TODO: Show alert instead of printing error to console
+                        let alertController = UIAlertController(title: "Unable to load listings", message: error.localizedDescription, preferredStyle: .alert)
+                        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                        self.present(alertController, animated: true, completion: nil)
                     }
                     
                     self.updateNavigationTitle()
