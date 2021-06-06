@@ -15,6 +15,7 @@ class ListingCell: UICollectionViewCell {
     @IBOutlet weak var dealerNameLabel: UILabel!
     @IBOutlet weak var dealerStreetLabel: UILabel!
     @IBOutlet weak var dealerAddressLabel: UILabel!
+    @IBOutlet weak var callDealerButton: FilledButton!
     
     var onCallDealerButtonClicked: (() -> Void)?
     

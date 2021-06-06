@@ -125,49 +125,31 @@
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lSY-fJ-baA">
                                             <rect key="frame" x="0.0" y="0.0" width="358" height="181"/>
+                                            <color key="backgroundColor" systemColor="systemGrayColor"/>
                                         </imageView>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="57f-nC-RxW" userLabel="Left Edge View">
-                                            <rect key="frame" x="0.0" y="181" width="1" height="137"/>
-                                            <color key="backgroundColor" systemColor="systemGrayColor"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="1" id="NWO-n6-BCX"/>
-                                            </constraints>
-                                        </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LiI-oO-VjB" userLabel="Right Edge View">
-                                            <rect key="frame" x="357" y="181" width="1" height="137"/>
-                                            <color key="backgroundColor" systemColor="systemGrayColor"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="1" id="Hux-XJ-f40"/>
-                                            </constraints>
-                                        </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="B5E-lU-wXU" secondAttribute="trailing" constant="8" id="0s3-My-xSq"/>
                                         <constraint firstItem="tC3-Jt-XZk" firstAttribute="top" secondItem="elv-ho-oxX" secondAttribute="bottom" constant="11" id="1Ea-hN-PhM"/>
                                         <constraint firstAttribute="trailing" secondItem="Tm4-hW-qWT" secondAttribute="trailing" constant="8" id="1Ra-j4-FMx"/>
-                                        <constraint firstItem="au9-e5-xin" firstAttribute="top" secondItem="LiI-oO-VjB" secondAttribute="bottom" id="1jw-f6-jO1"/>
                                         <constraint firstItem="Tm4-hW-qWT" firstAttribute="top" secondItem="Ab2-wX-yRx" secondAttribute="bottom" constant="4" id="2yu-oI-ZVO"/>
                                         <constraint firstItem="Ape-tV-c9r" firstAttribute="top" secondItem="lSY-fJ-baA" secondAttribute="bottom" id="3Eo-CB-R4T"/>
                                         <constraint firstItem="B5E-lU-wXU" firstAttribute="leading" secondItem="xrK-7u-fe9" secondAttribute="trailing" constant="8" symbolic="YES" id="5Eq-Xe-oNa"/>
                                         <constraint firstAttribute="bottom" secondItem="au9-e5-xin" secondAttribute="bottom" id="5gc-xc-qtr"/>
                                         <constraint firstItem="xrK-7u-fe9" firstAttribute="leading" secondItem="elv-ho-oxX" secondAttribute="trailing" constant="8" symbolic="YES" id="6m7-l5-CVT"/>
-                                        <constraint firstAttribute="trailing" secondItem="LiI-oO-VjB" secondAttribute="trailing" id="7f7-8r-LsD"/>
                                         <constraint firstItem="tC3-Jt-XZk" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" constant="8" id="BMn-Qv-1C1"/>
                                         <constraint firstItem="au9-e5-xin" firstAttribute="top" secondItem="Tm4-hW-qWT" secondAttribute="bottom" constant="8" id="BOC-HQ-0lt"/>
                                         <constraint firstItem="Tm4-hW-qWT" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" constant="8" id="Eu6-JF-02B"/>
                                         <constraint firstItem="Ab2-wX-yRx" firstAttribute="top" secondItem="tC3-Jt-XZk" secondAttribute="bottom" constant="4" id="Fzt-yd-n6f"/>
                                         <constraint firstAttribute="trailing" secondItem="lSY-fJ-baA" secondAttribute="trailing" id="G7H-jd-PkL"/>
                                         <constraint firstAttribute="trailing" secondItem="xrK-7u-fe9" secondAttribute="trailing" constant="152" id="IjG-Ru-iBF"/>
-                                        <constraint firstAttribute="bottom" secondItem="57f-nC-RxW" secondAttribute="bottom" constant="50" id="Lmf-vI-uN3"/>
                                         <constraint firstAttribute="trailing" secondItem="tC3-Jt-XZk" secondAttribute="trailing" constant="8" id="M3r-X5-OTr"/>
                                         <constraint firstItem="Ape-tV-c9r" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" constant="8" id="V4n-89-D3h"/>
                                         <constraint firstItem="tC3-Jt-XZk" firstAttribute="top" secondItem="xrK-7u-fe9" secondAttribute="bottom" constant="8" symbolic="YES" id="XD7-1Z-jbK"/>
                                         <constraint firstAttribute="trailing" secondItem="Ape-tV-c9r" secondAttribute="trailing" constant="8" id="alD-4s-wvr"/>
-                                        <constraint firstItem="57f-nC-RxW" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" id="fpK-Lr-9jh"/>
                                         <constraint firstAttribute="trailing" secondItem="au9-e5-xin" secondAttribute="trailing" id="kny-h2-2SA"/>
                                         <constraint firstItem="elv-ho-oxX" firstAttribute="leading" secondItem="XnY-6d-LE4" secondAttribute="trailing" constant="8" symbolic="YES" id="p8A-rF-oJj"/>
                                         <constraint firstItem="XnY-6d-LE4" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" constant="8" id="pGP-4N-8lU"/>
-                                        <constraint firstItem="LiI-oO-VjB" firstAttribute="top" secondItem="lSY-fJ-baA" secondAttribute="bottom" id="po1-x8-cZH"/>
                                         <constraint firstItem="tC3-Jt-XZk" firstAttribute="top" secondItem="B5E-lU-wXU" secondAttribute="bottom" constant="11" id="puL-bo-oBU"/>
                                         <constraint firstItem="lSY-fJ-baA" firstAttribute="top" secondItem="54G-gq-QFC" secondAttribute="top" id="qFO-Y9-UfN"/>
                                         <constraint firstItem="Ab2-wX-yRx" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" constant="8" id="sHI-2p-Bzg"/>
@@ -175,12 +157,12 @@
                                         <constraint firstItem="XnY-6d-LE4" firstAttribute="top" secondItem="Ape-tV-c9r" secondAttribute="bottom" constant="8" symbolic="YES" id="uJN-ib-sZ6"/>
                                         <constraint firstItem="tC3-Jt-XZk" firstAttribute="top" secondItem="XnY-6d-LE4" secondAttribute="bottom" constant="8" symbolic="YES" id="uQf-SL-MwP"/>
                                         <constraint firstItem="lSY-fJ-baA" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" id="v70-5t-TSw"/>
-                                        <constraint firstItem="57f-nC-RxW" firstAttribute="top" secondItem="lSY-fJ-baA" secondAttribute="bottom" id="wMu-zg-0vS"/>
                                         <constraint firstAttribute="trailing" secondItem="Ab2-wX-yRx" secondAttribute="trailing" constant="8" id="wZF-mQ-TnU"/>
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="358" height="368"/>
                                 <connections>
+                                    <outlet property="callDealerButton" destination="au9-e5-xin" id="2M5-He-KU1"/>
                                     <outlet property="dealerAddressLabel" destination="Tm4-hW-qWT" id="xLJ-D3-BMC"/>
                                     <outlet property="dealerNameLabel" destination="tC3-Jt-XZk" id="NQh-wI-KPT"/>
                                     <outlet property="dealerStreetLabel" destination="Ab2-wX-yRx" id="Rde-zF-hOM"/>

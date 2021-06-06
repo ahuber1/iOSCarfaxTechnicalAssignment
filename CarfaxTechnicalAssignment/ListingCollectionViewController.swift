@@ -8,6 +8,7 @@
 import UIKit
 
 class ListingCollectionViewController: UICollectionViewController {
+    private let client = UCLSearchClient()
     private var listings: [Listing] = []
     
     private let reuseIdentifier = "ListingCell"
@@ -16,18 +17,54 @@ class ListingCollectionViewController: UICollectionViewController {
     private let minimumSpacing: CGFloat = 8
     private let requestedSpacing: CGFloat = 16
     
-    
     private let requestedCellSize = CGSize(width: 358, height: 368)
     private var cachedCellSize: CGSize?
     private var cachedFrameSize: CGSize?
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Listings Near You"
         self.collectionView.delaysContentTouches = false
+        updateNavigationTitle()
         
-        listings = [Listing](repeating: Listing(), count: 100) // TODO: Remove; only added for testing purposes
+        let indicator = UIActivityIndicatorView(style: .large)
+        self.view.addSubview(indicator)
+        indicator.frame = self.view.bounds
+        indicator.startAnimating()
+        
+        client.pullListings { result in
+            DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
+                DispatchQueue.main.sync {
+                    indicator.stopAnimating()
+                    indicator.removeFromSuperview()
+                    
+                    switch result {
+                    case .success(let response):
+                        self.listings = response.listings
+                        self.collectionView.reloadData()
+                        
+                    case .failure(let error):
+                        print(error) // TODO: Show alert instead of printing error to console
+                    }
+                    
+                    self.updateNavigationTitle()
+                }
+            }
+        }
+    }
+    
+    private func updateNavigationTitle() {
+        let title: String
+        switch listings.count {
+        case 0:
+            title = "Listings Near You"
+        case 1:
+            title = "1 Listing Near You"
+        default:
+            title = "\(listings.count.withThousandsSeparator) Listings Near You"
+        }
+        
+        self.navigationItem.title = title
     }
 }
 
@@ -43,10 +80,40 @@ extension ListingCollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        // Get cell and apply a corner radius
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ListingCell
         cell.applyCornerRadius(of: cellCornerRadius)
-        cell.imageView.image = UIImage(named: "acura.jpg")
-        cell.onCallDealerButtonClicked = { print("Call Dealer Button clicked at index path \(indexPath)") }
+        
+        // Update cell's data
+        let listing = listings[indexPath.row]
+        cell.imageView.image = listing.images.firstPhoto.uiImage
+        cell.ymmtLabel.text = listing.ymmt
+        cell.priceLabel.text = listing.priceString
+        cell.mileageLabel.text = listing.mileageString
+        cell.dealerNameLabel.text = listing.dealer.name
+        cell.dealerStreetLabel.text = listing.dealer.address
+        cell.dealerAddressLabel.text = listing.dealer.cityStateZip
+        
+        if listing.dealer.phone.isEmpty {
+            cell.callDealerButton.isEnabled = false
+            cell.onCallDealerButtonClicked = nil
+        } else {
+            cell.onCallDealerButtonClicked = {
+                let callAction = UIAlertAction(title: "Call \(listing.dealer.phone)", style: .default) { action in
+                    print("Calling \(listing.dealer.phone)")
+                }
+                let cancelAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
+                
+                let dealerName = listing.dealer.name.isEmpty ? "this dealer" : listing.dealer.name
+                let alertController = UIAlertController(title: "Would you like to call \(dealerName)?", message: nil, preferredStyle: .actionSheet)
+                alertController.addAction(callAction)
+                alertController.addAction(cancelAction)
+                
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
+        
+        // Return configured cell
         return cell
     }
 }
