@@ -17,6 +17,11 @@ class ListingCell: UICollectionViewCell {
     @IBOutlet weak var dealerAddressLabel: UILabel!
     @IBOutlet weak var callDealerButton: FilledButton!
     
+    // Views for the "Image Not Available" placeholder
+    @IBOutlet weak var imageOverlay: UIView!
+    @IBOutlet weak var photoPlaceholderImageView: UIImageView!
+    @IBOutlet weak var imageNotAvailableLabel: UILabel!
+    
     var onCallDealerButtonClicked: (() -> Void)?
     
     @IBAction func callDealerButtonClicked(_ sender: UIButton) {

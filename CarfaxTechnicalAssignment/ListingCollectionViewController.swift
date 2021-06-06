@@ -86,7 +86,6 @@ extension ListingCollectionViewController {
         
         // Update cell's data
         let listing = listings[indexPath.row]
-        cell.imageView.image = listing.images.firstPhoto.uiImage
         cell.ymmtLabel.text = listing.ymmt
         cell.priceLabel.text = listing.priceString
         cell.mileageLabel.text = listing.mileageString
@@ -94,6 +93,15 @@ extension ListingCollectionViewController {
         cell.dealerStreetLabel.text = listing.dealer.address
         cell.dealerAddressLabel.text = listing.dealer.cityStateZip
         
+        // Update cell's image
+        let image = listing.images.firstPhoto.uiImage
+        cell.imageView.image = image
+        cell.imageView.isHidden = image == nil
+        cell.imageOverlay.isHidden = image != nil
+        cell.photoPlaceholderImageView.isHidden = image != nil
+        cell.imageNotAvailableLabel.isHidden = image != nil
+        
+        // Setup callback for clicking "Call Dealer" button
         if listing.dealer.phone.isEmpty {
             cell.callDealerButton.isEnabled = false
             cell.onCallDealerButtonClicked = nil

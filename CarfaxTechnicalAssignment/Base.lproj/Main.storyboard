@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,7 +31,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="358" height="368"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="npH-Hh-efd" userLabel="Overlay">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="npH-Hh-efd" userLabel="Cell Overlay">
                                             <rect key="frame" x="1" y="1" width="356" height="317"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         </view>
@@ -129,8 +130,26 @@
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lSY-fJ-baA">
                                             <rect key="frame" x="0.0" y="0.0" width="358" height="181"/>
-                                            <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FrY-1K-Jcp" userLabel="Image Overlay">
+                                            <rect key="frame" x="0.0" y="0.0" width="358" height="181"/>
+                                            <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                        </view>
+                                        <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Fe-r2-5gr" userLabel="Photo Placeholder">
+                                            <rect key="frame" x="0.0" y="9" width="358" height="117"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <imageReference key="image" image="photo.on.rectangle.angled" catalog="system" symbolScale="small"/>
+                                        </imageView>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image Not Available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbh-Lw-asb">
+                                            <rect key="frame" x="0.0" y="136" width="358" height="45"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="45" id="sEm-Ce-g0x"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemGrayColor"/>
                                     <constraints>
@@ -138,6 +157,7 @@
                                         <constraint firstItem="tC3-Jt-XZk" firstAttribute="top" secondItem="elv-ho-oxX" secondAttribute="bottom" constant="11" id="1Ea-hN-PhM"/>
                                         <constraint firstItem="npH-Hh-efd" firstAttribute="top" secondItem="54G-gq-QFC" secondAttribute="top" constant="1" id="1HE-Ua-lCa"/>
                                         <constraint firstAttribute="trailing" secondItem="Tm4-hW-qWT" secondAttribute="trailing" constant="8" id="1Ra-j4-FMx"/>
+                                        <constraint firstItem="Ape-tV-c9r" firstAttribute="top" secondItem="FrY-1K-Jcp" secondAttribute="bottom" id="2Il-p4-QnL"/>
                                         <constraint firstItem="Tm4-hW-qWT" firstAttribute="top" secondItem="Ab2-wX-yRx" secondAttribute="bottom" constant="4" id="2yu-oI-ZVO"/>
                                         <constraint firstItem="Ape-tV-c9r" firstAttribute="top" secondItem="lSY-fJ-baA" secondAttribute="bottom" id="3Eo-CB-R4T"/>
                                         <constraint firstItem="B5E-lU-wXU" firstAttribute="leading" secondItem="xrK-7u-fe9" secondAttribute="trailing" constant="8" symbolic="YES" id="5Eq-Xe-oNa"/>
@@ -150,23 +170,33 @@
                                         <constraint firstItem="Ab2-wX-yRx" firstAttribute="top" secondItem="tC3-Jt-XZk" secondAttribute="bottom" constant="4" id="Fzt-yd-n6f"/>
                                         <constraint firstAttribute="trailing" secondItem="lSY-fJ-baA" secondAttribute="trailing" id="G7H-jd-PkL"/>
                                         <constraint firstAttribute="trailing" secondItem="xrK-7u-fe9" secondAttribute="trailing" constant="152" id="IjG-Ru-iBF"/>
+                                        <constraint firstItem="1Fe-r2-5gr" firstAttribute="top" secondItem="54G-gq-QFC" secondAttribute="top" constant="8" id="JLa-Ar-rXd"/>
                                         <constraint firstAttribute="trailing" secondItem="tC3-Jt-XZk" secondAttribute="trailing" constant="8" id="M3r-X5-OTr"/>
+                                        <constraint firstItem="FrY-1K-Jcp" firstAttribute="top" secondItem="54G-gq-QFC" secondAttribute="top" id="Uic-ab-rX2"/>
                                         <constraint firstItem="Ape-tV-c9r" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" constant="8" id="V4n-89-D3h"/>
+                                        <constraint firstAttribute="trailing" secondItem="1Fe-r2-5gr" secondAttribute="trailing" id="Vs7-0h-XzP"/>
                                         <constraint firstItem="tC3-Jt-XZk" firstAttribute="top" secondItem="xrK-7u-fe9" secondAttribute="bottom" constant="8" symbolic="YES" id="XD7-1Z-jbK"/>
                                         <constraint firstAttribute="bottom" secondItem="npH-Hh-efd" secondAttribute="bottom" constant="50" id="ZCr-ML-9bx"/>
                                         <constraint firstAttribute="trailing" secondItem="Ape-tV-c9r" secondAttribute="trailing" constant="8" id="alD-4s-wvr"/>
                                         <constraint firstItem="npH-Hh-efd" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" constant="1" id="bWW-dh-POk"/>
+                                        <constraint firstItem="FrY-1K-Jcp" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" id="hL8-Kc-3sU"/>
+                                        <constraint firstItem="1Fe-r2-5gr" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" id="iN0-ir-NCm"/>
                                         <constraint firstAttribute="trailing" secondItem="au9-e5-xin" secondAttribute="trailing" id="kny-h2-2SA"/>
+                                        <constraint firstItem="fbh-Lw-asb" firstAttribute="top" secondItem="1Fe-r2-5gr" secondAttribute="bottom" constant="8" id="m1z-dS-Tc0"/>
+                                        <constraint firstAttribute="trailing" secondItem="fbh-Lw-asb" secondAttribute="trailing" id="mmG-kF-MMh"/>
                                         <constraint firstItem="elv-ho-oxX" firstAttribute="leading" secondItem="XnY-6d-LE4" secondAttribute="trailing" constant="8" symbolic="YES" id="p8A-rF-oJj"/>
                                         <constraint firstItem="XnY-6d-LE4" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" constant="8" id="pGP-4N-8lU"/>
                                         <constraint firstItem="tC3-Jt-XZk" firstAttribute="top" secondItem="B5E-lU-wXU" secondAttribute="bottom" constant="11" id="puL-bo-oBU"/>
                                         <constraint firstItem="lSY-fJ-baA" firstAttribute="top" secondItem="54G-gq-QFC" secondAttribute="top" id="qFO-Y9-UfN"/>
+                                        <constraint firstItem="Ape-tV-c9r" firstAttribute="top" secondItem="fbh-Lw-asb" secondAttribute="bottom" id="qim-zi-uw9"/>
                                         <constraint firstItem="Ab2-wX-yRx" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" constant="8" id="sHI-2p-Bzg"/>
                                         <constraint firstItem="au9-e5-xin" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" id="tUW-du-dtb"/>
                                         <constraint firstItem="XnY-6d-LE4" firstAttribute="top" secondItem="Ape-tV-c9r" secondAttribute="bottom" constant="8" symbolic="YES" id="uJN-ib-sZ6"/>
                                         <constraint firstItem="tC3-Jt-XZk" firstAttribute="top" secondItem="XnY-6d-LE4" secondAttribute="bottom" constant="8" symbolic="YES" id="uQf-SL-MwP"/>
                                         <constraint firstItem="lSY-fJ-baA" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" id="v70-5t-TSw"/>
                                         <constraint firstAttribute="trailing" secondItem="Ab2-wX-yRx" secondAttribute="trailing" constant="8" id="wZF-mQ-TnU"/>
+                                        <constraint firstItem="fbh-Lw-asb" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" id="xqi-DM-B1z"/>
+                                        <constraint firstAttribute="trailing" secondItem="FrY-1K-Jcp" secondAttribute="trailing" id="xsW-PD-EFf"/>
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="358" height="368"/>
@@ -175,8 +205,11 @@
                                     <outlet property="dealerAddressLabel" destination="Tm4-hW-qWT" id="xLJ-D3-BMC"/>
                                     <outlet property="dealerNameLabel" destination="tC3-Jt-XZk" id="NQh-wI-KPT"/>
                                     <outlet property="dealerStreetLabel" destination="Ab2-wX-yRx" id="Rde-zF-hOM"/>
+                                    <outlet property="imageNotAvailableLabel" destination="fbh-Lw-asb" id="YyI-CI-4TW"/>
+                                    <outlet property="imageOverlay" destination="FrY-1K-Jcp" id="cYH-0P-41t"/>
                                     <outlet property="imageView" destination="lSY-fJ-baA" id="mBg-Sp-lGn"/>
                                     <outlet property="mileageLabel" destination="B5E-lU-wXU" id="Zbz-SZ-KH9"/>
+                                    <outlet property="photoPlaceholderImageView" destination="1Fe-r2-5gr" id="hkC-sQ-dyP"/>
                                     <outlet property="priceLabel" destination="elv-ho-oxX" id="jeI-Xe-EXc"/>
                                     <outlet property="ymmtLabel" destination="Ape-tV-c9r" id="gmk-lE-FR0"/>
                                 </connections>
@@ -221,6 +254,7 @@
         <image name="dollarsign.circle" catalog="system" width="128" height="121"/>
         <image name="gauge" catalog="system" width="128" height="121"/>
         <image name="phone.fill" catalog="system" width="128" height="114"/>
+        <image name="photo.on.rectangle.angled" catalog="system" width="128" height="101"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
