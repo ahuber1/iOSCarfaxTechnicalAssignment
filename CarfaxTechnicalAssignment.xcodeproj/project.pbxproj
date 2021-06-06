@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		E031494C266AF5B800B43F70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E031494B266AF5B800B43F70 /* AppDelegate.swift */; };
 		E031494E266AF5B800B43F70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E031494D266AF5B800B43F70 /* SceneDelegate.swift */; };
-		E0314950266AF5B800B43F70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E031494F266AF5B800B43F70 /* ViewController.swift */; };
 		E0314953266AF5B800B43F70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0314951266AF5B800B43F70 /* Main.storyboard */; };
 		E0314955266AF5BA00B43F70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0314954266AF5BA00B43F70 /* Assets.xcassets */; };
 		E0314958266AF5BA00B43F70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0314956266AF5BA00B43F70 /* LaunchScreen.storyboard */; };
 		E0314963266AF5BA00B43F70 /* CarfaxTechnicalAssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0314962266AF5BA00B43F70 /* CarfaxTechnicalAssignmentTests.swift */; };
 		E031496E266AF5BA00B43F70 /* CarfaxTechnicalAssignmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E031496D266AF5BA00B43F70 /* CarfaxTechnicalAssignmentUITests.swift */; };
+		E0842202266C4F88006AD529 /* ListingCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0842201266C4F88006AD529 /* ListingCollectionViewController.swift */; };
+		E0842205266C50A9006AD529 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0842204266C50A9006AD529 /* Listing.swift */; };
+		E0842207266C51FF006AD529 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0842206266C51FF006AD529 /* UIViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +40,6 @@
 		E0314948266AF5B800B43F70 /* CarfaxTechnicalAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarfaxTechnicalAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E031494B266AF5B800B43F70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E031494D266AF5B800B43F70 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E031494F266AF5B800B43F70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E0314952266AF5B800B43F70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E0314954266AF5BA00B43F70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0314957266AF5BA00B43F70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +50,9 @@
 		E0314969266AF5BA00B43F70 /* CarfaxTechnicalAssignmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarfaxTechnicalAssignmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E031496D266AF5BA00B43F70 /* CarfaxTechnicalAssignmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarfaxTechnicalAssignmentUITests.swift; sourceTree = "<group>"; };
 		E031496F266AF5BA00B43F70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0842201266C4F88006AD529 /* ListingCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingCollectionViewController.swift; sourceTree = "<group>"; };
+		E0842204266C50A9006AD529 /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
+		E0842206266C51FF006AD529 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +103,15 @@
 		E031494A266AF5B800B43F70 /* CarfaxTechnicalAssignment */ = {
 			isa = PBXGroup;
 			children = (
+				E0842203266C5097006AD529 /* Models */,
 				E031494B266AF5B800B43F70 /* AppDelegate.swift */,
 				E031494D266AF5B800B43F70 /* SceneDelegate.swift */,
-				E031494F266AF5B800B43F70 /* ViewController.swift */,
 				E0314951266AF5B800B43F70 /* Main.storyboard */,
+				E0842201266C4F88006AD529 /* ListingCollectionViewController.swift */,
 				E0314954266AF5BA00B43F70 /* Assets.xcassets */,
 				E0314956266AF5BA00B43F70 /* LaunchScreen.storyboard */,
 				E0314959266AF5BA00B43F70 /* Info.plist */,
+				E0842206266C51FF006AD529 /* UIViewExtensions.swift */,
 			);
 			path = CarfaxTechnicalAssignment;
 			sourceTree = "<group>";
@@ -126,6 +132,14 @@
 				E031496F266AF5BA00B43F70 /* Info.plist */,
 			);
 			path = CarfaxTechnicalAssignmentUITests;
+			sourceTree = "<group>";
+		};
+		E0842203266C5097006AD529 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E0842204266C50A9006AD529 /* Listing.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +272,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0314950266AF5B800B43F70 /* ViewController.swift in Sources */,
 				E031494C266AF5B800B43F70 /* AppDelegate.swift in Sources */,
+				E0842207266C51FF006AD529 /* UIViewExtensions.swift in Sources */,
 				E031494E266AF5B800B43F70 /* SceneDelegate.swift in Sources */,
+				E0842205266C50A9006AD529 /* Listing.swift in Sources */,
+				E0842202266C4F88006AD529 /* ListingCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
