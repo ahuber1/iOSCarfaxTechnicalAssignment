@@ -14,3 +14,19 @@ extension UIView {
         self.clipsToBounds = true
     }
 }
+
+extension CGSize {
+    var aspectRatio: CGFloat {
+        get {
+            return width / height
+        }
+    }
+    
+    init(withAspectRatio aspectRatio: CGFloat, andWidth width: CGFloat) {
+        self.init(width: width, height: width / aspectRatio)
+    }
+    
+    init(withAspectRatio aspectRatio: CGFloat, andHeight height: CGFloat) {
+        self.init(width: height * aspectRatio, height: height)
+    }
+}

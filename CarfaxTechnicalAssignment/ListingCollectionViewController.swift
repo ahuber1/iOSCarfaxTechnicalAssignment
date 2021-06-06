@@ -20,6 +20,7 @@ class ListingCollectionViewController: UICollectionViewController {
     private let requestedCellSize = CGSize(width: 358, height: 368)
     private var cachedCellSize: CGSize?
     private var cachedFrameSize: CGSize?
+    private var cachedSpacing: CGFloat?
     
     @IBOutlet weak var refreshButton: UIBarButtonItem!
     
@@ -27,6 +28,15 @@ class ListingCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         self.collectionView.delaysContentTouches = false
         performRefresh()
+    }
+    
+    
+    override func viewWillLayoutSubviews() {
+        if let recordedFrameSize = cachedFrameSize {
+            if recordedFrameSize != view.frame.size {
+                collectionView.collectionViewLayout.invalidateLayout()
+            }
+        }
     }
     
     @IBAction func onRefreshButtonClicked(_ sender: UIBarButtonItem) {
@@ -132,6 +142,10 @@ extension ListingCollectionViewController {
                 alertController.addAction(callAction)
                 alertController.addAction(cancelAction)
                 
+                if let popoverController = alertController.popoverPresentationController {
+                    popoverController.sourceView = cell.callDealerButton
+                }
+                
                 self.present(alertController, animated: true, completion: nil)
             }
         }
@@ -148,56 +162,63 @@ extension ListingCollectionViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let (cellSize, frameSize) = getSizes()
-        let spacing = calculateSpacing()
-        let remainingWidth = frameSize.with(insets: UIEdgeInsets(uniformInset: spacing)).width
-        let numCellsPerRow = floor(remainingWidth / cellSize.width)
-        let extraSpace = remainingWidth - (cellSize.width * numCellsPerRow)
-        return UIEdgeInsets(top: spacing, left: extraSpace / 2, bottom: spacing, right: extraSpace / 2)
+        return UIEdgeInsets(uniformInset: getSizes().spacing)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return calculateSpacing()
+        return getSizes().spacing
     }
     
-    fileprivate func getSizes() -> (cellSize: CGSize, frameSize: CGSize) {
+    fileprivate func getSizes() -> (cellSize: CGSize, frameSize: CGSize, spacing: CGFloat) {
         let frameSize = view.frame.size
         
         // If we have
-        if let recordedFrameSize = cachedFrameSize, let recordedCellSize = cachedCellSize {
+        if let recordedFrameSize = cachedFrameSize, let recordedCellSize = cachedCellSize, let recordedSpacing = cachedSpacing {
             if recordedFrameSize == frameSize {
-                return (recordedCellSize, recordedFrameSize)
+                return (recordedCellSize, recordedFrameSize, recordedSpacing)
             }
         }
         
-        let remainingWidth = frameSize.with(insets: UIEdgeInsets(uniformInset: minimumSpacing)).width
+        let spacing: CGFloat
+        let cellSize: CGSize
         
-        // Calculate the width of the cell
-        var cellWidth: CGFloat
+        let aspectRatio = requestedCellSize.aspectRatio
+        var cellCount = numberOfCellsInRow(inFrameWithWidth: frameSize.width, withSpacing: requestedSpacing, andWithAMinimumCellWidthOf: requestedCellSize.width)
         
-        if remainingWidth >= requestedCellSize.width {
-            cellWidth = requestedCellSize.width // use the requested width if there is space to accomodate a cell with that width
+        if cellCount > 0 {
+            // If we can fit at least one cell with the requested spacing, calculate the cell width and maintain the same aspect ratio as the requested cell size
+            spacing = requestedSpacing
+            let cellWidth = widthOfCellInRow(inFrameWithWidth: frameSize.width, withSpacing: requestedSpacing, andWithACellCountPerRowOf: cellCount)
+            cellSize = CGSize(withAspectRatio: aspectRatio, andWidth: cellWidth)
         } else {
-            cellWidth = remainingWidth // set the cell's width to the width of the frame with padding deducted from it
+            spacing = minimumSpacing
+            cellCount = numberOfCellsInRow(inFrameWithWidth: frameSize.width, withSpacing: minimumSpacing, andWithAMinimumCellWidthOf: requestedCellSize.width)
+            if cellCount > 0 {
+                // If we can fit at least once cell with the minimum spacing, calculate the cell width and maintain the same aspect ratio as the requested cell size
+                let cellWidth = widthOfCellInRow(inFrameWithWidth: frameSize.width, withSpacing: minimumSpacing, andWithACellCountPerRowOf: cellCount)
+                cellSize = CGSize(withAspectRatio: aspectRatio, andWidth: cellWidth)
+            } else {
+                // If we cannot fit at least once cell, shrink the cell widthwise so there is minimumSpacing spacing on the left and right side, and set the cell
+                // height so it is the same as the requested cell height
+                let cellWidth = frameSize.width - (minimumSpacing * 2)
+                cellSize = CGSize(width: cellWidth, height: requestedCellSize.height)
+            }
         }
         
-        let cellSize = CGSize(width: cellWidth, height: requestedCellSize.height)
-        
-        // Cache the frame size and cell size we just calculated so we do not have to recompute cell size
+        // Cache results
         cachedFrameSize = frameSize
         cachedCellSize = cellSize
+        cachedSpacing = spacing
         
-        return (cellSize, frameSize)
+        return (cellSize, frameSize, spacing)
     }
     
-    fileprivate func calculateSpacing() -> CGFloat {
-        let (cellSize, frameSize) = getSizes()
-        
-        if frameSize.with(insets: UIEdgeInsets(uniformInset: requestedSpacing)).width >= cellSize.width {
-            return requestedSpacing
-        }
-        
-        return minimumSpacing
+    fileprivate func numberOfCellsInRow(inFrameWithWidth frameWidth: CGFloat, withSpacing spacing: CGFloat, andWithAMinimumCellWidthOf minimumCellWidth: CGFloat) -> Int {
+        return Int(floor((frameWidth - spacing) / (minimumCellWidth + spacing)))
+    }
+    
+    fileprivate func widthOfCellInRow(inFrameWithWidth frameWidth: CGFloat, withSpacing spacing: CGFloat, andWithACellCountPerRowOf cellCount: Int) -> CGFloat {
+        return (frameWidth - (spacing * (CGFloat(cellCount) + 1))) / CGFloat(cellCount)
     }
 }
 
