@@ -16,20 +16,172 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ht0-6j-DCG">
-                            <size key="itemSize" width="128" height="128"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ht0-6j-DCG">
+                            <size key="itemSize" width="230" height="209"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ListingCell" id="XmA-th-qnY">
-                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ListingCell" id="XmA-th-qnY" customClass="ListingCell" customModule="CarfaxTechnicalAssignment" customModuleProvider="target">
+                                <rect key="frame" x="28" y="0.0" width="358" height="368"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="54G-gq-QFC">
-                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="358" height="368"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="au9-e5-xin">
+                                            <rect key="frame" x="0.0" y="318" width="358" height="50"/>
+                                            <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="Bfe-tK-NyR"/>
+                                            </constraints>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal" title="Call Dealer" image="phone.fill" catalog="system">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="callDealerButtonClicked:" destination="XmA-th-qnY" eventType="touchUpInside" id="QDo-VT-elU"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fredericksburg, VA 23456" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tm4-hW-qWT">
+                                            <rect key="frame" x="8" y="292" width="342" height="18"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="18" id="490-9G-hYk"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123 Main Street" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ab2-wX-yRx">
+                                            <rect key="frame" x="8" y="270" width="342" height="18"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="18" id="0Ro-CP-Lf9"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fredericksburg Acura" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tC3-Jt-XZk">
+                                            <rect key="frame" x="8" y="245" width="342" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="fIi-dk-qgZ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollarsign.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="XnY-6d-LE4">
+                                            <rect key="frame" x="8" y="210.5" width="27" height="26"/>
+                                            <color key="tintColor" systemColor="systemGreenColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="27" id="HKH-Nd-poc"/>
+                                                <constraint firstAttribute="height" constant="27" id="mR3-6g-2lb"/>
+                                            </constraints>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gauge" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xrK-7u-fe9">
+                                            <rect key="frame" x="179" y="210.5" width="27" height="26"/>
+                                            <color key="tintColor" systemColor="systemBlueColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="27" id="V8B-T8-eHw"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="27" id="VZB-ml-UzX"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="27" id="kVg-aB-RL9"/>
+                                                <constraint firstAttribute="height" constant="27" id="uCB-S0-oHx"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$52,300" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elv-ho-oxX">
+                                            <rect key="frame" x="43" y="213" width="128" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="USj-iT-uFM"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="110,683 mi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5E-lU-wXU">
+                                            <rect key="frame" x="214" y="213" width="136" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="bQa-zQ-XsE"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021 Acura TLX Type S" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ape-tV-c9r">
+                                            <rect key="frame" x="8" y="181" width="342" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="bLB-la-NNK"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lSY-fJ-baA">
+                                            <rect key="frame" x="0.0" y="0.0" width="358" height="181"/>
+                                        </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="57f-nC-RxW" userLabel="Left Edge View">
+                                            <rect key="frame" x="0.0" y="181" width="1" height="137"/>
+                                            <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="1" id="NWO-n6-BCX"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LiI-oO-VjB" userLabel="Right Edge View">
+                                            <rect key="frame" x="357" y="181" width="1" height="137"/>
+                                            <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="1" id="Hux-XJ-f40"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="B5E-lU-wXU" secondAttribute="trailing" constant="8" id="0s3-My-xSq"/>
+                                        <constraint firstItem="tC3-Jt-XZk" firstAttribute="top" secondItem="elv-ho-oxX" secondAttribute="bottom" constant="11" id="1Ea-hN-PhM"/>
+                                        <constraint firstAttribute="trailing" secondItem="Tm4-hW-qWT" secondAttribute="trailing" constant="8" id="1Ra-j4-FMx"/>
+                                        <constraint firstItem="au9-e5-xin" firstAttribute="top" secondItem="LiI-oO-VjB" secondAttribute="bottom" id="1jw-f6-jO1"/>
+                                        <constraint firstItem="Tm4-hW-qWT" firstAttribute="top" secondItem="Ab2-wX-yRx" secondAttribute="bottom" constant="4" id="2yu-oI-ZVO"/>
+                                        <constraint firstItem="Ape-tV-c9r" firstAttribute="top" secondItem="lSY-fJ-baA" secondAttribute="bottom" id="3Eo-CB-R4T"/>
+                                        <constraint firstItem="B5E-lU-wXU" firstAttribute="leading" secondItem="xrK-7u-fe9" secondAttribute="trailing" constant="8" symbolic="YES" id="5Eq-Xe-oNa"/>
+                                        <constraint firstAttribute="bottom" secondItem="au9-e5-xin" secondAttribute="bottom" id="5gc-xc-qtr"/>
+                                        <constraint firstItem="xrK-7u-fe9" firstAttribute="leading" secondItem="elv-ho-oxX" secondAttribute="trailing" constant="8" symbolic="YES" id="6m7-l5-CVT"/>
+                                        <constraint firstAttribute="trailing" secondItem="LiI-oO-VjB" secondAttribute="trailing" id="7f7-8r-LsD"/>
+                                        <constraint firstItem="tC3-Jt-XZk" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" constant="8" id="BMn-Qv-1C1"/>
+                                        <constraint firstItem="au9-e5-xin" firstAttribute="top" secondItem="Tm4-hW-qWT" secondAttribute="bottom" constant="8" id="BOC-HQ-0lt"/>
+                                        <constraint firstItem="Tm4-hW-qWT" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" constant="8" id="Eu6-JF-02B"/>
+                                        <constraint firstItem="Ab2-wX-yRx" firstAttribute="top" secondItem="tC3-Jt-XZk" secondAttribute="bottom" constant="4" id="Fzt-yd-n6f"/>
+                                        <constraint firstAttribute="trailing" secondItem="lSY-fJ-baA" secondAttribute="trailing" id="G7H-jd-PkL"/>
+                                        <constraint firstAttribute="trailing" secondItem="xrK-7u-fe9" secondAttribute="trailing" constant="152" id="IjG-Ru-iBF"/>
+                                        <constraint firstAttribute="bottom" secondItem="57f-nC-RxW" secondAttribute="bottom" constant="50" id="Lmf-vI-uN3"/>
+                                        <constraint firstAttribute="trailing" secondItem="tC3-Jt-XZk" secondAttribute="trailing" constant="8" id="M3r-X5-OTr"/>
+                                        <constraint firstItem="Ape-tV-c9r" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" constant="8" id="V4n-89-D3h"/>
+                                        <constraint firstItem="tC3-Jt-XZk" firstAttribute="top" secondItem="xrK-7u-fe9" secondAttribute="bottom" constant="8" symbolic="YES" id="XD7-1Z-jbK"/>
+                                        <constraint firstAttribute="trailing" secondItem="Ape-tV-c9r" secondAttribute="trailing" constant="8" id="alD-4s-wvr"/>
+                                        <constraint firstItem="57f-nC-RxW" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" id="fpK-Lr-9jh"/>
+                                        <constraint firstAttribute="trailing" secondItem="au9-e5-xin" secondAttribute="trailing" id="kny-h2-2SA"/>
+                                        <constraint firstItem="elv-ho-oxX" firstAttribute="leading" secondItem="XnY-6d-LE4" secondAttribute="trailing" constant="8" symbolic="YES" id="p8A-rF-oJj"/>
+                                        <constraint firstItem="XnY-6d-LE4" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" constant="8" id="pGP-4N-8lU"/>
+                                        <constraint firstItem="LiI-oO-VjB" firstAttribute="top" secondItem="lSY-fJ-baA" secondAttribute="bottom" id="po1-x8-cZH"/>
+                                        <constraint firstItem="tC3-Jt-XZk" firstAttribute="top" secondItem="B5E-lU-wXU" secondAttribute="bottom" constant="11" id="puL-bo-oBU"/>
+                                        <constraint firstItem="lSY-fJ-baA" firstAttribute="top" secondItem="54G-gq-QFC" secondAttribute="top" id="qFO-Y9-UfN"/>
+                                        <constraint firstItem="Ab2-wX-yRx" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" constant="8" id="sHI-2p-Bzg"/>
+                                        <constraint firstItem="au9-e5-xin" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" id="tUW-du-dtb"/>
+                                        <constraint firstItem="XnY-6d-LE4" firstAttribute="top" secondItem="Ape-tV-c9r" secondAttribute="bottom" constant="8" symbolic="YES" id="uJN-ib-sZ6"/>
+                                        <constraint firstItem="tC3-Jt-XZk" firstAttribute="top" secondItem="XnY-6d-LE4" secondAttribute="bottom" constant="8" symbolic="YES" id="uQf-SL-MwP"/>
+                                        <constraint firstItem="lSY-fJ-baA" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" id="v70-5t-TSw"/>
+                                        <constraint firstItem="57f-nC-RxW" firstAttribute="top" secondItem="lSY-fJ-baA" secondAttribute="bottom" id="wMu-zg-0vS"/>
+                                        <constraint firstAttribute="trailing" secondItem="Ab2-wX-yRx" secondAttribute="trailing" constant="8" id="wZF-mQ-TnU"/>
+                                    </constraints>
                                 </collectionViewCellContentView>
+                                <size key="customSize" width="358" height="368"/>
+                                <connections>
+                                    <outlet property="dealerAddressLabel" destination="Tm4-hW-qWT" id="xLJ-D3-BMC"/>
+                                    <outlet property="dealerNameLabel" destination="tC3-Jt-XZk" id="NQh-wI-KPT"/>
+                                    <outlet property="dealerStreetLabel" destination="Ab2-wX-yRx" id="Rde-zF-hOM"/>
+                                    <outlet property="imageView" destination="lSY-fJ-baA" id="mBg-Sp-lGn"/>
+                                    <outlet property="mileageLabel" destination="B5E-lU-wXU" id="Zbz-SZ-KH9"/>
+                                    <outlet property="priceLabel" destination="elv-ho-oxX" id="jeI-Xe-EXc"/>
+                                    <outlet property="ymmtLabel" destination="Ape-tV-c9r" id="gmk-lE-FR0"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -63,8 +215,20 @@
         </scene>
     </scenes>
     <resources>
+        <image name="dollarsign.circle" catalog="system" width="128" height="121"/>
+        <image name="gauge" catalog="system" width="128" height="121"/>
+        <image name="phone.fill" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -42,12 +42,9 @@ extension ListingCollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        
-        
-        cell.backgroundColor = .black
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ListingCell
         cell.applyCornerRadius(of: cellCornerRadius)
-        
+        cell.imageView.image = UIImage(named: "acura.jpg")
         return cell
     }
 }
