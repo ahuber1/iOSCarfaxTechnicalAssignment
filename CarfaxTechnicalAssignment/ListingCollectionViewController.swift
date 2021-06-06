@@ -108,6 +108,7 @@ extension ListingCollectionViewController {
         // Get cell and apply a corner radius
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ListingCell
         cell.applyCornerRadius(of: cellCornerRadius)
+        cell.cellOverlay.applyCornerRadius(of: cellCornerRadius)
         
         // Update cell's data
         let listing = listings[indexPath.row]
@@ -120,6 +121,7 @@ extension ListingCollectionViewController {
         
         // Update cell's image
         let image = listing.images.firstPhoto.uiImage
+        cell.imageView.applyCornerRadius(of: cellCornerRadius)
         cell.imageView.image = image
         cell.imageView.isHidden = image == nil
         cell.imageOverlay.isHidden = image != nil

@@ -8,6 +8,7 @@
 import UIKit
 
 class ListingCell: UICollectionViewCell {
+    @IBOutlet weak var cellOverlay: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var ymmtLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!

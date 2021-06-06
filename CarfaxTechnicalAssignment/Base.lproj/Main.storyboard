@@ -129,7 +129,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lSY-fJ-baA">
-                                            <rect key="frame" x="0.0" y="0.0" width="358" height="181"/>
+                                            <rect key="frame" x="1" y="1" width="356" height="180"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FrY-1K-Jcp" userLabel="Image Overlay">
@@ -168,7 +168,7 @@
                                         <constraint firstItem="Tm4-hW-qWT" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" constant="8" id="Eu6-JF-02B"/>
                                         <constraint firstAttribute="trailing" secondItem="npH-Hh-efd" secondAttribute="trailing" constant="1" id="FsN-Do-Q14"/>
                                         <constraint firstItem="Ab2-wX-yRx" firstAttribute="top" secondItem="tC3-Jt-XZk" secondAttribute="bottom" constant="4" id="Fzt-yd-n6f"/>
-                                        <constraint firstAttribute="trailing" secondItem="lSY-fJ-baA" secondAttribute="trailing" id="G7H-jd-PkL"/>
+                                        <constraint firstAttribute="trailing" secondItem="lSY-fJ-baA" secondAttribute="trailing" constant="1" id="G7H-jd-PkL"/>
                                         <constraint firstAttribute="trailing" secondItem="xrK-7u-fe9" secondAttribute="trailing" constant="152" id="IjG-Ru-iBF"/>
                                         <constraint firstItem="1Fe-r2-5gr" firstAttribute="top" secondItem="54G-gq-QFC" secondAttribute="top" constant="8" id="JLa-Ar-rXd"/>
                                         <constraint firstAttribute="trailing" secondItem="tC3-Jt-XZk" secondAttribute="trailing" constant="8" id="M3r-X5-OTr"/>
@@ -187,13 +187,13 @@
                                         <constraint firstItem="elv-ho-oxX" firstAttribute="leading" secondItem="XnY-6d-LE4" secondAttribute="trailing" constant="8" symbolic="YES" id="p8A-rF-oJj"/>
                                         <constraint firstItem="XnY-6d-LE4" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" constant="8" id="pGP-4N-8lU"/>
                                         <constraint firstItem="tC3-Jt-XZk" firstAttribute="top" secondItem="B5E-lU-wXU" secondAttribute="bottom" constant="11" id="puL-bo-oBU"/>
-                                        <constraint firstItem="lSY-fJ-baA" firstAttribute="top" secondItem="54G-gq-QFC" secondAttribute="top" id="qFO-Y9-UfN"/>
+                                        <constraint firstItem="lSY-fJ-baA" firstAttribute="top" secondItem="54G-gq-QFC" secondAttribute="top" constant="1" id="qFO-Y9-UfN"/>
                                         <constraint firstItem="Ape-tV-c9r" firstAttribute="top" secondItem="fbh-Lw-asb" secondAttribute="bottom" id="qim-zi-uw9"/>
                                         <constraint firstItem="Ab2-wX-yRx" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" constant="8" id="sHI-2p-Bzg"/>
                                         <constraint firstItem="au9-e5-xin" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" id="tUW-du-dtb"/>
                                         <constraint firstItem="XnY-6d-LE4" firstAttribute="top" secondItem="Ape-tV-c9r" secondAttribute="bottom" constant="8" symbolic="YES" id="uJN-ib-sZ6"/>
                                         <constraint firstItem="tC3-Jt-XZk" firstAttribute="top" secondItem="XnY-6d-LE4" secondAttribute="bottom" constant="8" symbolic="YES" id="uQf-SL-MwP"/>
-                                        <constraint firstItem="lSY-fJ-baA" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" id="v70-5t-TSw"/>
+                                        <constraint firstItem="lSY-fJ-baA" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" constant="1" id="v70-5t-TSw"/>
                                         <constraint firstAttribute="trailing" secondItem="Ab2-wX-yRx" secondAttribute="trailing" constant="8" id="wZF-mQ-TnU"/>
                                         <constraint firstItem="fbh-Lw-asb" firstAttribute="leading" secondItem="54G-gq-QFC" secondAttribute="leading" id="xqi-DM-B1z"/>
                                         <constraint firstAttribute="trailing" secondItem="FrY-1K-Jcp" secondAttribute="trailing" id="xsW-PD-EFf"/>
@@ -202,6 +202,7 @@
                                 <size key="customSize" width="358" height="368"/>
                                 <connections>
                                     <outlet property="callDealerButton" destination="au9-e5-xin" id="2M5-He-KU1"/>
+                                    <outlet property="cellOverlay" destination="npH-Hh-efd" id="zan-ck-5Kl"/>
                                     <outlet property="dealerAddressLabel" destination="Tm4-hW-qWT" id="xLJ-D3-BMC"/>
                                     <outlet property="dealerNameLabel" destination="tC3-Jt-XZk" id="NQh-wI-KPT"/>
                                     <outlet property="dealerStreetLabel" destination="Ab2-wX-yRx" id="Rde-zF-hOM"/>

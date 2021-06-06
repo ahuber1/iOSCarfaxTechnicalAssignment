@@ -12,7 +12,7 @@ extension Formatter {
     static let withSeparator: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
-        formatter.groupingSeparator = " "
+        formatter.groupingSeparator = ","
         return formatter
     }()
 }
