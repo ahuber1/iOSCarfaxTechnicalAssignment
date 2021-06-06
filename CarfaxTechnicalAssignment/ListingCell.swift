@@ -16,8 +16,11 @@ class ListingCell: UICollectionViewCell {
     @IBOutlet weak var dealerStreetLabel: UILabel!
     @IBOutlet weak var dealerAddressLabel: UILabel!
     
+    var onCallDealerButtonClicked: (() -> Void)?
     
     @IBAction func callDealerButtonClicked(_ sender: UIButton) {
-        print("Calling dealer...")
+        if let action = onCallDealerButtonClicked {
+            action()
+        }
     }
 }

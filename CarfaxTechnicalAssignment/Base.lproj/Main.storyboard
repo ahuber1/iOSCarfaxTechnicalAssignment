@@ -30,9 +30,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="358" height="368"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="au9-e5-xin">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="au9-e5-xin" customClass="FilledButton" customModule="CarfaxTechnicalAssignment" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="318" width="358" height="50"/>
-                                            <color key="backgroundColor" systemColor="systemGreenColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="Bfe-tK-NyR"/>
                                             </constraints>
@@ -40,6 +39,14 @@
                                             <state key="normal" title="Call Dealer" image="phone.fill" catalog="system">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
+                                                    <color key="value" red="0.18093784039999999" green="0.80000000000000004" blue="0.27586405089999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="highlightedColor">
+                                                    <color key="value" red="0.13570338030000001" green="0.59999999999999998" blue="0.2068980382" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="callDealerButtonClicked:" destination="XmA-th-qnY" eventType="touchUpInside" id="QDo-VT-elU"/>
                                             </connections>
@@ -214,6 +221,11 @@
             <point key="canvasLocation" x="111.59420289855073" y="150"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="au9-e5-xin">
+            <size key="intrinsicContentSize" width="106.5" height="22"/>
+        </designable>
+    </designables>
     <resources>
         <image name="dollarsign.circle" catalog="system" width="128" height="121"/>
         <image name="gauge" catalog="system" width="128" height="121"/>

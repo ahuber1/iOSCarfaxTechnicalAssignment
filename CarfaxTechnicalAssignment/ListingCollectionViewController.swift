@@ -25,6 +25,7 @@ class ListingCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Listings Near You"
+        self.collectionView.delaysContentTouches = false
         
         listings = [Listing](repeating: Listing(), count: 100) // TODO: Remove; only added for testing purposes
     }
@@ -45,6 +46,7 @@ extension ListingCollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ListingCell
         cell.applyCornerRadius(of: cellCornerRadius)
         cell.imageView.image = UIImage(named: "acura.jpg")
+        cell.onCallDealerButtonClicked = { print("Call Dealer Button clicked at index path \(indexPath)") }
         return cell
     }
 }

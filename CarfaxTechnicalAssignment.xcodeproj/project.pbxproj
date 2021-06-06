@@ -18,6 +18,7 @@
 		E0842205266C50A9006AD529 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0842204266C50A9006AD529 /* Listing.swift */; };
 		E0842207266C51FF006AD529 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0842206266C51FF006AD529 /* UIViewExtensions.swift */; };
 		E08C8010266C6F350062180F /* ListingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C800F266C6F350062180F /* ListingCell.swift */; };
+		E08C8014266D1A070062180F /* FilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C8013266D1A070062180F /* FilledButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		E0842204266C50A9006AD529 /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
 		E0842206266C51FF006AD529 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		E08C800F266C6F350062180F /* ListingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingCell.swift; sourceTree = "<group>"; };
+		E08C8013266D1A070062180F /* FilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				E0314956266AF5BA00B43F70 /* LaunchScreen.storyboard */,
 				E0314959266AF5BA00B43F70 /* Info.plist */,
 				E0842206266C51FF006AD529 /* UIViewExtensions.swift */,
+				E08C8013266D1A070062180F /* FilledButton.swift */,
 			);
 			path = CarfaxTechnicalAssignment;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				E08C8010266C6F350062180F /* ListingCell.swift in Sources */,
 				E031494C266AF5B800B43F70 /* AppDelegate.swift in Sources */,
 				E0842207266C51FF006AD529 /* UIViewExtensions.swift in Sources */,
+				E08C8014266D1A070062180F /* FilledButton.swift in Sources */,
 				E031494E266AF5B800B43F70 /* SceneDelegate.swift in Sources */,
 				E0842205266C50A9006AD529 /* Listing.swift in Sources */,
 				E0842202266C4F88006AD529 /* ListingCollectionViewController.swift in Sources */,
