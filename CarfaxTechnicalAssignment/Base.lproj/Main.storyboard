@@ -220,7 +220,16 @@
                             <outlet property="delegate" destination="0TP-0v-2zq" id="KN4-bM-oC0"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="y5q-TV-jgU"/>
+                    <navigationItem key="navigationItem" id="y5q-TV-jgU">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="refresh" id="dFX-ZA-yOy">
+                            <connections>
+                                <action selector="onRefreshButtonClicked:" destination="0TP-0v-2zq" id="Ok1-fr-Sah"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="refreshButton" destination="dFX-ZA-yOy" id="u2g-oi-CBW"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8W1-SJ-MsU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

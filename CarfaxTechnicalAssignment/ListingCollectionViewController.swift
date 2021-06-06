@@ -21,11 +21,24 @@ class ListingCollectionViewController: UICollectionViewController {
     private var cachedCellSize: CGSize?
     private var cachedFrameSize: CGSize?
     
+    @IBOutlet weak var refreshButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.delaysContentTouches = false
+        performRefresh()
+    }
+    
+    @IBAction func onRefreshButtonClicked(_ sender: UIBarButtonItem) {
+        performRefresh()
+    }
+    
+    fileprivate func performRefresh() {
+        listings.removeAll()
+        collectionView.reloadData()
+        
         updateNavigationTitle()
+        refreshButton.isEnabled = false
         
         let indicator = UIActivityIndicatorView(style: .large)
         self.view.addSubview(indicator)
@@ -48,12 +61,13 @@ class ListingCollectionViewController: UICollectionViewController {
                     }
                     
                     self.updateNavigationTitle()
+                    self.refreshButton.isEnabled = true
                 }
             }
         }
     }
     
-    private func updateNavigationTitle() {
+    fileprivate func updateNavigationTitle() {
         let title: String
         switch listings.count {
         case 0:
