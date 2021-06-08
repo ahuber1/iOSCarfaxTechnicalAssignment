@@ -65,12 +65,4 @@ class FirstPhotos: Decodable {
     var large = ""
     var medium = ""
     var small = ""
-    
-    var uiImage: UIImage? {
-        get {
-            guard let url = URL(string: large) else { return nil }
-            guard let data = try? Data(contentsOf: url) else { return nil }
-            return data.count > 0 ? UIImage(data: data) : nil
-        }
-    }
 }

@@ -30,3 +30,12 @@ extension CGSize {
         self.init(width: height * aspectRatio, height: height)
     }
 }
+
+extension UIImage {
+    convenience init?(fromURL urlString: String) {
+        guard let url = URL(string: urlString) else { return nil }
+        guard let data = try? Data(contentsOf: url) else { return nil }
+        guard data.count > 0 else { return nil }
+        self.init(data: data)
+    }
+}

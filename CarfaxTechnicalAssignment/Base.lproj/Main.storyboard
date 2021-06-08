@@ -221,7 +221,17 @@
                             <outlet property="delegate" destination="0TP-0v-2zq" id="KN4-bM-oC0"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="y5q-TV-jgU"/>
+                    <navigationItem key="navigationItem" id="y5q-TV-jgU">
+                        <barButtonItem key="rightBarButtonItem" title="Shuffle" style="plain" id="JqF-7O-bxs">
+                            <imageReference key="image" image="shuffle.circle" catalog="system" symbolScale="large"/>
+                            <connections>
+                                <action selector="onRandomizeButtonTapped:" destination="0TP-0v-2zq" id="hWI-Ag-Fe7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="randomizeBarButton" destination="JqF-7O-bxs" id="Sfh-Tn-5wf"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8W1-SJ-MsU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -256,6 +266,7 @@
         <image name="gauge" catalog="system" width="128" height="121"/>
         <image name="phone.fill" catalog="system" width="128" height="114"/>
         <image name="photo.on.rectangle.angled" catalog="system" width="128" height="101"/>
+        <image name="shuffle.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

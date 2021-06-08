@@ -24,8 +24,7 @@ class UCLSearchClient {
             
             guard
                 (response as? HTTPURLResponse) != nil,
-                let data = data,
-                let status = (response as? HTTPURLResponse)?.statusCode
+                let data = data
             else {
                 completion(.failure(Error.unknownAPIResponse))
                 return
