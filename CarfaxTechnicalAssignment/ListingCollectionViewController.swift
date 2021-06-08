@@ -22,14 +22,16 @@ class ListingCollectionViewController: UICollectionViewController {
     private var cachedFrameSize: CGSize?
     private var cachedSpacing: CGFloat?
     
-    @IBOutlet weak var refreshButton: UIBarButtonItem!
-    
+    private let refreshControl = UIRefreshControl()
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.delaysContentTouches = false
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: #selector(self.performRefresh), for: .valueChanged)
+        self.collectionView.addSubview(refreshControl)
         performRefresh()
     }
-    
     
     override func viewWillLayoutSubviews() {
         if let recordedFrameSize = cachedFrameSize {
@@ -39,28 +41,10 @@ class ListingCollectionViewController: UICollectionViewController {
         }
     }
     
-    @IBAction func onRefreshButtonClicked(_ sender: UIBarButtonItem) {
-        performRefresh()
-    }
-    
-    fileprivate func performRefresh() {
-        listings.removeAll()
-        collectionView.reloadData()
-        
-        updateNavigationTitle()
-        refreshButton.isEnabled = false
-        
-        let indicator = UIActivityIndicatorView(style: .large)
-        self.view.addSubview(indicator)
-        indicator.frame = self.view.bounds
-        indicator.startAnimating()
-        
+    @objc func performRefresh() {
         client.pullListings { result in
             DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
                 DispatchQueue.main.sync {
-                    indicator.stopAnimating()
-                    indicator.removeFromSuperview()
-                    
                     switch result {
                     case .success(let response):
                         self.listings = response.listings
@@ -72,7 +56,7 @@ class ListingCollectionViewController: UICollectionViewController {
                     }
                     
                     self.updateNavigationTitle()
-                    self.refreshButton.isEnabled = true
+                    self.refreshControl.endRefreshing()
                 }
             }
         }
