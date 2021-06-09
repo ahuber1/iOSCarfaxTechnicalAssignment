@@ -107,7 +107,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lSY-fJ-baA" userLabel="Listing Image View">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lSY-fJ-baA" userLabel="Listing Image View" customClass="ListingCellImageView" customModule="CarfaxTechnicalAssignment" customModuleProvider="target">
                                             <rect key="frame" x="1" y="1" width="356" height="180"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </imageView>
@@ -115,7 +115,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="358" height="181"/>
                                             <color key="backgroundColor" systemColor="systemGrayColor"/>
                                         </view>
-                                        <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Fe-r2-5gr" userLabel="Photo Placeholder">
+                                        <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Fe-r2-5gr" userLabel="Photo Placeholder" customClass="ListingCellImageView" customModule="CarfaxTechnicalAssignment" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="9" width="358" height="117"/>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <imageReference key="image" image="photo.on.rectangle.angled" catalog="system" symbolScale="small"/>

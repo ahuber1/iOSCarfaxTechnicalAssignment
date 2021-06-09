@@ -18,6 +18,7 @@
 		E0842205266C50A9006AD529 /* UCLSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0842204266C50A9006AD529 /* UCLSearchResponse.swift */; };
 		E0842207266C51FF006AD529 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0842206266C51FF006AD529 /* UIViewExtensions.swift */; };
 		E08482502670CA400086337D /* UCLSearchResponseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E084824F2670CA400086337D /* UCLSearchResponseExtensions.swift */; };
+		E08482522670D5230086337D /* ListingCellImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08482512670D5230086337D /* ListingCellImageView.swift */; };
 		E08C8010266C6F350062180F /* ListingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C800F266C6F350062180F /* ListingCell.swift */; };
 		E08C8014266D1A070062180F /* FilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C8013266D1A070062180F /* FilledButton.swift */; };
 		E08C8016266D1C900062180F /* UCLSearchClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C8015266D1C900062180F /* UCLSearchClient.swift */; };
@@ -60,6 +61,7 @@
 		E0842204266C50A9006AD529 /* UCLSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UCLSearchResponse.swift; sourceTree = "<group>"; };
 		E0842206266C51FF006AD529 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		E084824F2670CA400086337D /* UCLSearchResponseExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UCLSearchResponseExtensions.swift; sourceTree = "<group>"; };
+		E08482512670D5230086337D /* ListingCellImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingCellImageView.swift; sourceTree = "<group>"; };
 		E08C800F266C6F350062180F /* ListingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingCell.swift; sourceTree = "<group>"; };
 		E08C8013266D1A070062180F /* FilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledButton.swift; sourceTree = "<group>"; };
 		E08C8015266D1C900062180F /* UCLSearchClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UCLSearchClient.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				E0842206266C51FF006AD529 /* UIViewExtensions.swift */,
 				E08C8013266D1A070062180F /* FilledButton.swift */,
 				E08C8017266D2ADE0062180F /* FormatExtensions.swift */,
+				E08482512670D5230086337D /* ListingCellImageView.swift */,
 			);
 			path = CarfaxTechnicalAssignment;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				E08C8010266C6F350062180F /* ListingCell.swift in Sources */,
 				E031494C266AF5B800B43F70 /* AppDelegate.swift in Sources */,
 				E0842207266C51FF006AD529 /* UIViewExtensions.swift in Sources */,
+				E08482522670D5230086337D /* ListingCellImageView.swift in Sources */,
 				E08C8016266D1C900062180F /* UCLSearchClient.swift in Sources */,
 				E08C8014266D1A070062180F /* FilledButton.swift in Sources */,
 				E031494E266AF5B800B43F70 /* SceneDelegate.swift in Sources */,

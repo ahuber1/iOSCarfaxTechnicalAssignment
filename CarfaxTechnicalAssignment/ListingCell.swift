@@ -14,7 +14,7 @@ class ListingCell: UICollectionViewCell {
     // down to the top right of the Call Dealer button.
     @IBOutlet weak var cellOverlay: UIView!
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: ListingCellImageView!
     @IBOutlet weak var ymmtLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var mileageLabel: UILabel!
@@ -25,7 +25,7 @@ class ListingCell: UICollectionViewCell {
     
     // Views for the "Image Not Available" placeholder
     @IBOutlet weak var placeholderBackground: UIView!
-    @IBOutlet weak var photoPlaceholderImageView: UIImageView!
+    @IBOutlet weak var photoPlaceholderImageView: ListingCellImageView!
     @IBOutlet weak var imageNotAvailableLabel: UILabel!
     
     var onCallDealerButtonClicked: (() -> Void)?

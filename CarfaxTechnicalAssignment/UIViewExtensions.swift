@@ -71,8 +71,16 @@ extension UIImage {
 extension UIView {
     /// Applies a corner radius on the `UIView`'s `CALayer` and enures subviews are clipped to the bounds of this `UIView`.
     /// - Parameter cornerRadius: The corner radius to apply to this `UIView`.
-    func applyCornerRadius(of cornerRadius: CGFloat) {
-        self.layer.cornerRadius = cornerRadius
+    func applyCornerRadius(of radius: CGFloat) {
+        self.layer.cornerRadius = radius
+        self.clipsToBounds = true
+    }
+    
+    func applyCornerRadius(of radius: CGFloat, to corners: UIRectCorner) {
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
         self.clipsToBounds = true
     }
 }

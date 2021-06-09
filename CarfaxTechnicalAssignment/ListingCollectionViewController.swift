@@ -165,12 +165,17 @@ extension ListingCollectionViewController {
         
         // Update cell's image
         let image = imageCache[listing.images.firstPhoto]
-        cell.imageView.applyCornerRadius(of: cellCornerRadius)
         cell.imageView.image = image
         cell.imageView.isHidden = image == nil
         cell.placeholderBackground.isHidden = image != nil
         cell.photoPlaceholderImageView.isHidden = image != nil
         cell.imageNotAvailableLabel.isHidden = image != nil
+        
+        // Apply corner radii to image views
+        cell.imageView.cornerRadius = cellCornerRadius
+        cell.photoPlaceholderImageView.cornerRadius = cellCornerRadius
+        cell.imageView.roundedCorners = [.topLeft, .topRight]
+        cell.photoPlaceholderImageView.roundedCorners = [.topLeft, .topRight]
         
         // Setup callback for clicking "Call Dealer" button
         if listing.dealer.phone.isEmpty {
