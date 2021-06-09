@@ -7,6 +7,8 @@
 
 import UIKit
 
+/// FilledButton is a `UIButton` with a background that changes depending on whether the
+/// button is highlighted or not.
 @IBDesignable class FilledButton: UIButton {
     
     override init(frame: CGRect) {
@@ -19,12 +21,14 @@ import UIKit
         doInitialSetup()
     }
 
+    /// The background color to use when the button is not highlighted.
     @IBInspectable var fillColor: UIColor = .systemBackground {
         didSet {
             updateBackgroundColor()
         }
     }
     
+    /// The background color to use when the button is highlighted.
     @IBInspectable var highlightedColor: UIColor = .systemBackground {
         didSet {
             updateBackgroundColor()

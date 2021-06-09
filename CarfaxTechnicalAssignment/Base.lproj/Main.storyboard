@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Irj-01-N70">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Image references" minToolsVersion="12.0"/>
@@ -14,7 +13,7 @@
             <objects>
                 <collectionViewController id="0TP-0v-2zq" customClass="ListingCollectionViewController" customModule="CarfaxTechnicalAssignment" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="rIe-xt-Qfc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ht0-6j-DCG">
@@ -25,7 +24,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ListingCell" id="XmA-th-qnY" customClass="ListingCell" customModule="CarfaxTechnicalAssignment" customModuleProvider="target">
-                                <rect key="frame" x="28" y="0.0" width="358" height="368"/>
+                                <rect key="frame" x="121" y="0.0" width="358" height="368"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="54G-gq-QFC">
                                     <rect key="frame" x="0.0" y="0.0" width="358" height="368"/>
@@ -207,10 +206,10 @@
                                     <outlet property="dealerNameLabel" destination="tC3-Jt-XZk" id="NQh-wI-KPT"/>
                                     <outlet property="dealerStreetLabel" destination="Ab2-wX-yRx" id="Rde-zF-hOM"/>
                                     <outlet property="imageNotAvailableLabel" destination="fbh-Lw-asb" id="YyI-CI-4TW"/>
-                                    <outlet property="imageOverlay" destination="FrY-1K-Jcp" id="cYH-0P-41t"/>
                                     <outlet property="imageView" destination="lSY-fJ-baA" id="mBg-Sp-lGn"/>
                                     <outlet property="mileageLabel" destination="B5E-lU-wXU" id="Zbz-SZ-KH9"/>
                                     <outlet property="photoPlaceholderImageView" destination="1Fe-r2-5gr" id="hkC-sQ-dyP"/>
+                                    <outlet property="placeholderBackground" destination="FrY-1K-Jcp" id="cYH-0P-41t"/>
                                     <outlet property="priceLabel" destination="elv-ho-oxX" id="jeI-Xe-EXc"/>
                                     <outlet property="ymmtLabel" destination="Ape-tV-c9r" id="gmk-lE-FR0"/>
                                 </connections>
@@ -256,11 +255,6 @@
             <point key="canvasLocation" x="111.59420289855073" y="150"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="au9-e5-xin">
-            <size key="intrinsicContentSize" width="106.5" height="22"/>
-        </designable>
-    </designables>
     <resources>
         <image name="dollarsign.circle" catalog="system" width="128" height="121"/>
         <image name="gauge" catalog="system" width="128" height="121"/>

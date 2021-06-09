@@ -7,14 +7,17 @@
 
 import UIKit
 
+
+/// A cache of `UIImage`s to prevent the images from having to be re-downloaded. This is particularly
+/// useful in improving scrolling performance when viewing listings in a scrollable list like a
+/// `UICollectionView`.
 class ImageCache {
-    private let queue = DispatchQueue(label: "ImageCache")
     private var cache = NSCache<NSString, UIImage>()
     private var cannotLoad = Set<String>()
     
     subscript(_ photo: FirstPhotos) -> UIImage? {
         get {
-            return queue.sync { return self[photo.large] }
+            return self[photo.large]
         }
     }
     

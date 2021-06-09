@@ -18,8 +18,8 @@ class ListingCollectionViewController: UICollectionViewController {
     
     private let minimumSpacing: CGFloat = 8
     private let requestedSpacing: CGFloat = 16
-    
     private let requestedCellSize = CGSize(width: 358, height: 368)
+    
     private var cachedCellSize: CGSize?
     private var cachedFrameSize: CGSize?
     private var cachedSpacing: CGFloat?
@@ -80,7 +80,8 @@ class ListingCollectionViewController: UICollectionViewController {
     
     fileprivate func toggleRandomization() {
         randomize = !randomize
-        randomizeBarButton.image = randomize ? UIImage(systemName: "shuffle.circle.fill") : UIImage(systemName: "shuffle.circle")
+        let imageName = randomize ? "shuffle.circle.fill" : "shuffle.circle"
+        randomizeBarButton.image = UIImage(systemName: imageName)
         refreshControl.beginRefreshing()
         
         // Set offset so refresh indiator is visible
@@ -91,9 +92,11 @@ class ListingCollectionViewController: UICollectionViewController {
     @objc func performRefresh() {
         randomizeBarButton.isEnabled = false
         
+        // Clear out refresh control's title during refresh.
         let attributedTitle = refreshControl.attributedTitle
         refreshControl.attributedTitle = nil
         
+        // Clear out Collection View while refreshing.
         listings.removeAll()
         collectionView.reloadData()
         
@@ -165,7 +168,7 @@ extension ListingCollectionViewController {
         cell.imageView.applyCornerRadius(of: cellCornerRadius)
         cell.imageView.image = image
         cell.imageView.isHidden = image == nil
-        cell.imageOverlay.isHidden = image != nil
+        cell.placeholderBackground.isHidden = image != nil
         cell.photoPlaceholderImageView.isHidden = image != nil
         cell.imageNotAvailableLabel.isHidden = image != nil
         
@@ -195,6 +198,7 @@ extension ListingCollectionViewController {
     }
 }
 
+// MARK: UICollectionViewDelegateFlowLayout
 extension ListingCollectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -210,24 +214,28 @@ extension ListingCollectionViewController: UICollectionViewDelegateFlowLayout {
     }
     
     fileprivate func getSizes() -> (cellSize: CGSize, frameSize: CGSize, spacing: CGFloat) {
+        // If we have cached the frame size, cell size, and spacing and the cached values
+        // still apply because the superview's frame size is the same, return the cached values.
         if let recordedFrameSize = cachedFrameSize, let recordedCellSize = cachedCellSize, let recordedSpacing = cachedSpacing {
             if recordedFrameSize == frameSize {
                 return (recordedCellSize, recordedFrameSize, recordedSpacing)
             }
         }
         
-        // This block of code finds the spacing that will be to the left of the leftmost cell in a row, to the right of the rightmost cell in a row, and between cells in the same row.
+        // This block of code finds the spacing that will be to the left of the leftmost cell in a row,
+        // to the right of the rightmost cell in a row, and between cells in the same row.
         // First, we create an array of possible spacing values.
         let possibleSpacings = [minimumSpacing, requestedSpacing]
         
-        // Then, we calculate the number of cells that can appear in a row with each spacing value. We discard results where no cells can appear in a row.
+        // Then, we calculate the number of cells that can appear in a row with each spacing value.
+        // We discard results where no cells can appear in a row (i.e., when there's a cell count of zero).
         let spacingCellCountPairs = possibleSpacings.compactMap { (spacing: CGFloat) -> (spacing: CGFloat, cellCount: Int)? in
-            let count = numberOfCellsInRow(inFrameWithWidth: frameSize.width, withSpacing: spacing, andWithAMinimumCellWidthOf: requestedCellSize.width)
+            let count = numberOfCellsInRow(inFrameWithWidth: frameSize.width, withSpacing: spacing, andMinimumCellWidthOf: requestedCellSize.width)
             return count > 0 ? (spacing, count) : nil
         }
         
         // We then sort the pairs first by their cell count in descending order followed by their spacing in descending order.
-        // This prioritizes cell count (greater counts are preferred) over spacing (greater spacing is preferred).
+        // This prioritizes cell count (greater counts are preferred) then spacing (greater spacing is preferred).
         let sortedSpacingCellCountPairs = spacingCellCountPairs.sorted(by: { (left: (spacing: CGFloat, cellCount: Int), right: (spacing: CGFloat, cellCount: Int)) -> Bool in
             return left.cellCount == right.cellCount ? left.spacing > right.spacing : left.cellCount > right.cellCount
         })
@@ -235,43 +243,34 @@ extension ListingCollectionViewController: UICollectionViewDelegateFlowLayout {
         let cellSize: CGSize
         let spacing: CGFloat
         if let first = sortedSpacingCellCountPairs.first {
-            // If we can use one of the preferred spacing/cell count pairs, use the spacing and cell count values to calculate the cell size.
+            // If we can use one of the preferred spacing/cell count pairs, use the spacing and cell count values
+            // from to calculate the cell size.
             spacing = first.spacing
-            let cellWidth = widthOfCellInRow(inFrameWithWidth: frameSize.width, withSpacing: spacing, andWithACellCountPerRowOf: first.cellCount)
+            let cellWidth = widthOfCellInRow(inFrameWithWidth: frameSize.width, withSpacing: spacing, andCellCountPerRowOf: first.cellCount)
             cellSize = CGSize(withAspectRatio: requestedCellSize.aspectRatio, andWidth: cellWidth)
         } else {
-            // Otherwise, we're on a very small display where we have to make the cells narrower than we'd like. We can still make them as tall as we'd like, though,
-            // so use the width that we have with minimumSpacing padding on the left and right, and a height of requestedCellSize.height.
+            // Otherwise, we're on a very small display (e.g., iPod Touch) where we have to make the cells narrower than we'd like.
+            // We can still make them as tall as we'd prefer, though so use the width that we have with minimumSpacing padding on
+            // the left and right, and a height of requestedCellSize.height.
             spacing = minimumSpacing
             let cellWidth = frameSize.width - (spacing * 2)
             cellSize = CGSize(width: cellWidth, height: requestedCellSize.height)
         }
         
-        // Cache results
+        // Cache and return results of calculation
         cachedFrameSize = frameSize
         cachedCellSize = cellSize
         cachedSpacing = spacing
-        
         return (cellSize, frameSize, spacing)
     }
     
-    fileprivate func numberOfCellsInRow(inFrameWithWidth frameWidth: CGFloat, withSpacing spacing: CGFloat, andWithAMinimumCellWidthOf minimumCellWidth: CGFloat) -> Int {
+    fileprivate func numberOfCellsInRow(inFrameWithWidth frameWidth: CGFloat, withSpacing spacing: CGFloat, andMinimumCellWidthOf minimumCellWidth: CGFloat) -> Int {
         return Int(floor((frameWidth - spacing) / (minimumCellWidth + spacing)))
     }
     
-    fileprivate func widthOfCellInRow(inFrameWithWidth frameWidth: CGFloat, withSpacing spacing: CGFloat, andWithACellCountPerRowOf cellCount: Int) -> CGFloat {
+    fileprivate func widthOfCellInRow(inFrameWithWidth frameWidth: CGFloat, withSpacing spacing: CGFloat, andCellCountPerRowOf cellCount: Int) -> CGFloat {
         return (frameWidth - (spacing * (CGFloat(cellCount) + 1))) / CGFloat(cellCount)
     }
 }
 
-private extension UIEdgeInsets {
-    init(uniformInset inset: CGFloat) {
-        self.init(top: inset, left: inset, bottom: inset, right: inset)
-    }
-}
 
-private extension CGSize {
-    func with(insets: UIEdgeInsets) -> CGSize {
-        return CGSize(width: self.width - insets.left - insets.right, height: self.height - insets.top - insets.bottom)
-    }
-}

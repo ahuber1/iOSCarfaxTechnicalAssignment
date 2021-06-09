@@ -1,5 +1,5 @@
 //
-//  Listing.swift
+//  UCLSearchResponse.swift
 //  CarfaxTechnicalAssignment
 //
 //  Created by Andrew Huber on 6/5/21.
@@ -20,26 +20,6 @@ class Listing: Decodable {
     var model = ""
     var trim = ""
     var year = 0
-    
-    var mileageString: String {
-        get {
-            return "\(mileage.coercedAtLeastZero.withThousandsSeparator) mi"
-        }
-    }
-    
-    var priceString: String {
-        get {
-            return "$\(currentPrice.coercedAtLeastZero.withThousandsSeparator)"
-        }
-    }
-    
-    var ymmt: String {
-        get {
-            let yearString = year <= 0 ? "" : String(year)
-            let parts = [yearString, make, model, trim].filter { !$0.isEmpty }
-            return parts.joined(separator: " ")
-        }
-    }
 }
 
 class DealerInfo: Decodable {
@@ -49,12 +29,6 @@ class DealerInfo: Decodable {
     var phone = ""
     var state = ""
     var zip = ""
-    
-    var cityStateZip: String {
-        get {
-            return city.isEmpty || state.isEmpty || zip.isEmpty ? "" : "\(city), \(state) \(zip)"
-        }
-    }
 }
 
 class Images: Decodable {
