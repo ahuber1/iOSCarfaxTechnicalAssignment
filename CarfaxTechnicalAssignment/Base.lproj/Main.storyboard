@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Irj-01-N70">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Image references" minToolsVersion="12.0"/>
@@ -13,7 +14,7 @@
             <objects>
                 <collectionViewController id="0TP-0v-2zq" customClass="ListingCollectionViewController" customModule="CarfaxTechnicalAssignment" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="rIe-xt-Qfc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ht0-6j-DCG">
@@ -24,7 +25,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ListingCell" id="XmA-th-qnY" customClass="ListingCell" customModule="CarfaxTechnicalAssignment" customModuleProvider="target">
-                                <rect key="frame" x="121" y="0.0" width="358" height="368"/>
+                                <rect key="frame" x="28" y="0.0" width="358" height="368"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="54G-gq-QFC">
                                     <rect key="frame" x="0.0" y="0.0" width="358" height="368"/>
@@ -82,7 +83,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollarsign.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="XnY-6d-LE4">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollarsign.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="XnY-6d-LE4" userLabel="Price Icon Image View">
                                             <rect key="frame" x="8" y="210.5" width="27" height="26"/>
                                             <color key="tintColor" systemColor="systemGreenColor"/>
                                             <constraints>
@@ -90,7 +91,7 @@
                                                 <constraint firstAttribute="height" constant="27" id="mR3-6g-2lb"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gauge" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xrK-7u-fe9">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gauge" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xrK-7u-fe9" userLabel="Mileage Icon Image View">
                                             <rect key="frame" x="179" y="210.5" width="27" height="26"/>
                                             <color key="tintColor" systemColor="systemBlueColor"/>
                                             <constraints>
@@ -127,7 +128,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lSY-fJ-baA">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lSY-fJ-baA" userLabel="Listing Image View">
                                             <rect key="frame" x="1" y="1" width="356" height="180"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </imageView>
@@ -255,6 +256,11 @@
             <point key="canvasLocation" x="111.59420289855073" y="150"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="au9-e5-xin">
+            <size key="intrinsicContentSize" width="106.5" height="22"/>
+        </designable>
+    </designables>
     <resources>
         <image name="dollarsign.circle" catalog="system" width="128" height="121"/>
         <image name="gauge" catalog="system" width="128" height="121"/>
